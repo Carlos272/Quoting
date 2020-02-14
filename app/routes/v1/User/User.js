@@ -7,7 +7,7 @@ var AuthMiddleware = require('../../../middleware/middleware');
 
 app.set('secret', process.env.JWT_SECRET);
 
-router.get('/', function (req, res) {
+router.get('/', AuthMiddleware, function (req, res) {
     var pagination = {
         'Page': parseInt(req.query.page),
         'Limit': parseInt(req.query.limit),
