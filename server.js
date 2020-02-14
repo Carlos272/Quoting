@@ -3,14 +3,12 @@ var app = express();
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-var cors = require('cors');
 require('dotenv').config()
 
 //DB CONNECTION
 mongoose.connect(process.env.DB_LOCAL, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true)
 
-app.use(cors());
 
 var port = process.env.PORT || 8082;
 
