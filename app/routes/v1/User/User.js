@@ -64,12 +64,12 @@ router.post('/register', function (req, res) {
 
 });
 
-router.put('/:id',AuthMiddleware, function (req, res) {
+router.put('/:id', AuthMiddleware, function (req, res) {
     var userId = req.params.id;
     var dataUpdate = req.body;
     User.findByIdAndUpdate(userId, dataUpdate, {
         new: true
-    },(err) => {
+    }, (err) => {
         if (err) {
             res.status(500).send({
                 success: false,
@@ -85,7 +85,7 @@ router.put('/:id',AuthMiddleware, function (req, res) {
     });
 
 });
-router.delete('/:id',AuthMiddleware, function (req, res) {
+router.delete('/:id', AuthMiddleware, function (req, res) {
     var userId = req.params.id;
 
     User.findByIdAndRemove(userId, (err, user) => {
